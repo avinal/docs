@@ -121,11 +121,8 @@ Next, the script gets the current time and sets it as an output variable that ac
   ```
   If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
 
-1. Make your `entrypoint.sh` file executable by running the following command on your system.
+1. Update git index for your `entrypoint.sh` file to mark it executable before commiting.
 
-  ```shell{:copy}
-  $ chmod +x entrypoint.sh
-  ```
 
 ## Creating a README
 
@@ -173,6 +170,7 @@ It's best practice to also add a version tag for releases of your action. For mo
 
 ```shell{:copy}
 git add action.yml entrypoint.sh Dockerfile README.md
+git update-index --chmod=+x entrypoint.sh
 git commit -m "My first action is ready"
 git tag -a -m "My first action release" v1
 git push --follow-tags
